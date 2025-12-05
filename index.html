@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Nút YES/NO</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    #container {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        margin-top: 20px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    #yesBtn {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #noBtn {
+        background-color: #e74c3c;
+        color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.2s;
+    }
+
+    img {
+        width: 200px;
+        border-radius: 12px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Bạn có yêu thích tôi không?</h2>
+
+<button onclick="sendClick('yes')">YES</button>
+<button onclick="sendClick('no')">NO</button>
+
+<script>
+function sendClick(choice) {
+    fetch("https://YOUR-SERVER/log?press=" + choice)
+        .then(() => alert("Đã ghi lại!"));
+}
+</script>
+
+</body>
+</html>
